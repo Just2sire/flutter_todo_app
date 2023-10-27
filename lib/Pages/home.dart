@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter/src/material/bottom_navigation_bar.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -13,12 +14,7 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(),
-      body: myColumn()
-    );
-  }
-
-  Column myColumn() {
-    return Column(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -62,49 +58,37 @@ class _FirstPageState extends State<FirstPage> {
                   Row(
                     children: [
                       Stack(
-                        // alignment: Alignment.centerLeft,
-                        fit: StackFit.expand,
                         children: [
                           Positioned(
                             child: CircleAvatar(
-                              radius: 25,
                               backgroundImage: AssetImage("assets/images/user_profil.png"),
                             )
                           ),
                           Positioned(
                             left: 25,
-                            // top: 20,
                             child: CircleAvatar(
-                              radius: 25,
-                              backgroundImage: AssetImage("assets/images/user_profil.png"),
+                            backgroundImage: AssetImage("assets/images/user_profil.png"),
                             )
                           ),
                           Positioned(
                             left: 50,
-                            // top: 20,
                             child: CircleAvatar(
-                              radius: 25,
-                              backgroundImage: AssetImage("assets/images/user_profil.png"),
+                            backgroundImage: AssetImage("assets/images/user_profil.png"),
                             )
                           ),
                           Positioned(
                             left: 75,
-                            // top: 20,
                             child: CircleAvatar(
-                              radius: 25,
-                              child: Icon(
-                                Icons.add,
-                                color: Color.fromARGB(255, 6, 92, 198),
-                              ),
+                            backgroundImage: AssetImage("assets/images/user_profil.png"),
                             )
                           ),
-                          SizedBox(width: 50,),
-                          // LinearProgressIndicator(
-                          //   value: 40,
-                          //   color: Colors.black,
-                          //   backgroundColor: Colors.amber,
-                          //   semanticsLabel: "Progress",
-                          // )
+                          Positioned(
+                            left: 100,
+                            child: CircleAvatar(
+                              // backgroundImage: AssetImage("assets/images/user_profile.png"),
+                              child: Icon(Icons.add),
+                            )
+                          ),
                         ],
                       )
                     ],
@@ -115,7 +99,36 @@ class _FirstPageState extends State<FirstPage> {
           ),
           )
         ],
-      );
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 0.8,
+        backgroundColor: Colors.white38,
+        iconSize: 35,
+        // selectedFontSize: 20,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_month),
+            label: 'Calendar',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add),
+            label: 'Add',
+          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.messenger),
+          //   label: 'Notifications',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.person),
+          //   label: 'Profile',
+          // ),
+        ]
+      )
+    );
   }
 
   AppBar myAppBar() {
