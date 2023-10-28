@@ -29,18 +29,18 @@ class SplashScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20, right: 20),
           decoration: const BoxDecoration(
               gradient:
-                  LinearGradient(
-                    colors: [Color(0xFF3787EB), Colors.white],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter
-                  )
+                LinearGradient(
+                  colors: [Color(0xFF3787EB), Color.fromARGB(255, 206, 224, 234), Colors.white],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter
+                )
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Image.asset(
-                'assets/images/working_man.png',
-                width: 250,
+                'assets/images/fast_work.png',
+                width: 300,
               ),
               const Padding(
                 padding: EdgeInsets.only(left: 20, right: 20),
