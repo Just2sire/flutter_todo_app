@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_todo_app/Models/todo.dart';
-// import 'package:flutter/src/material/bottom_navigation_bar.dart';
+import 'package:flutter_todo_app/Pages/add_todo.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -21,77 +21,56 @@ class _FirstPageState extends State<FirstPage> {
   Widget build(BuildContext context) {
     _getTask();
     return Scaffold(
-        appBar: myAppBar(), 
-        body: myBody(),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: Colors.blue,
-          foregroundColor: Colors.white,
-          mini: false,
-          child: const Icon(
-            Icons.add,
-            size: 30,
-          ),
+      appBar: myAppBar(),
+      body: myBody(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const TaskAdd())
+          );
+        },
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        mini: false,
+        child: const Icon(
+          Icons.add,
+          size: 30,
         ),
-        bottomNavigationBar: BottomAppBar(
-          notchMargin: 5.0,
-          shape: const CircularNotchedRectangle(),
-          color: Colors.white.withOpacity(0.8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  bottom: 15
-                ),
-                child: SvgPicture.asset(
-                  "assets/icons/home_icon.svg",
-                  color: Colors.grey,
-                  width: 30
-                )
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 30,
-                  top: 15,
-                  bottom: 15
-                ),
-                child: SvgPicture.asset(
-                  "assets/icons/calendar_icon.svg",
-                  color: Colors.grey,
-                  width: 30
-                )
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  left: 30,
-                  top: 15,
-                  bottom: 15
-                ),
-                child: SvgPicture.asset(
-                  "assets/icons/message_icon.svg",
-                  color: Colors.grey,
-                  width: 30
-                )
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 15,
-                  bottom: 15
-                ),
-                child: SvgPicture.asset(
-                  "assets/icons/user_circle_icon.svg",
-                  color: Colors.grey,
-                  width: 30
-                )
-              )
-            ],
-          ),
-        ),
+      ),
+      bottomNavigationBar: myBottomNavBar(),
     );
   }
+
+  BottomAppBar myBottomNavBar() {
+    return BottomAppBar(
+      notchMargin: 5.0,
+      shape: const CircularNotchedRectangle(),
+      color: Colors.white.withOpacity(0.8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              child: SvgPicture.asset("assets/icons/home_icon.svg",
+                  color: Colors.grey, width: 30)),
+          Padding(
+              padding: const EdgeInsets.only(right: 30, top: 15, bottom: 15),
+              child: SvgPicture.asset("assets/icons/calendar_icon.svg",
+                  color: Colors.grey, width: 30)),
+          Padding(
+              padding: const EdgeInsets.only(left: 30, top: 15, bottom: 15),
+              child: SvgPicture.asset("assets/icons/message_icon.svg",
+                  color: Colors.grey, width: 30)),
+          Padding(
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
+              child: SvgPicture.asset("assets/icons/user_circle_icon.svg",
+                  color: Colors.grey, width: 30))
+        ],
+      ),
+    );
+  }
+
   Column myBody() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -102,7 +81,8 @@ class _FirstPageState extends State<FirstPage> {
           padding: const EdgeInsets.all(20),
           child: Container(
               width: 450,
-              padding: const EdgeInsets.only(left: 10, top: 20, bottom: 15, right: 15),
+              padding: const EdgeInsets.only(
+                  left: 10, top: 20, bottom: 15, right: 15),
               alignment: Alignment.topLeft,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -353,33 +333,35 @@ class _FirstPageState extends State<FirstPage> {
       ],
     );
   }
+
   AppBar myAppBar() {
     return AppBar(
       title: const Text("Homepage"),
       centerTitle: true,
       backgroundColor: Colors.white,
       titleTextStyle: const TextStyle(
-        color: Colors.black,
+        color: Colors.black87,
         fontSize: 25,
         fontWeight: FontWeight.w700,
       ),
       elevation: 0.0,
       // leading: const Icon(Icons.apps_rounded, color: Colors.black,),
       leading: Container(
-        margin: const EdgeInsets.all(14),
+        margin: const EdgeInsets.all(10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
             boxShadow: const [BoxShadow(color: Colors.black12)]),
         child: SvgPicture.asset(
           "assets/icons/apps_icon.svg",
-          width: 5,
-          height: 15,
+          width: 10,
+          height: 20,
         ),
       ),
       actions: [
         Container(
-          margin: const EdgeInsets.all(14),
+          margin: const EdgeInsets.only(top: 13, bottom: 4, right: 10, left: 10),
+          padding: const EdgeInsets.only(right: 5, left: 5),
           alignment: Alignment.center,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
@@ -389,7 +371,7 @@ class _FirstPageState extends State<FirstPage> {
                 )
               ]),
           child: SvgPicture.asset(
-            "assets/icons/notification_icon.svg",
+            "assets/icons/notif_icon.svg",
             width: 25,
             height: 25,
           ),
