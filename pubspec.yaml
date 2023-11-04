@@ -10,6 +10,10 @@ dependencies:
   flutter_svg: ^2.0.8
   flutter:
     sdk: flutter
+  gap: ^3.0.1
+  intl: ^0.18.1
+  calendar_timeline: ^1.1.2
+  easy_date_timeline: ^1.0.2
 
 dev_dependencies:
   flutter_test:
