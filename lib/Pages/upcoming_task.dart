@@ -18,13 +18,14 @@ class UpcomingTask extends StatefulWidget {
 }
 
 class _UpcomingTaskState extends State<UpcomingTask> {
-  
+
   List<Task> tasks = [];
 
   void _getTask() {
     tasks = Task.getTask();
   }
 
+  @override
   void initState() {
     super.initState();
   }
@@ -173,7 +174,7 @@ class _UpcomingTaskState extends State<UpcomingTask> {
                       ],
                     ),
                     const Gap(25),
-                    Container(
+                    SizedBox(
                       // height: screenHeightPercent(context, 80),
                       height: screenHeightPercent(context, 30),
                       child: ListView.separated(
@@ -302,9 +303,7 @@ class _UpcomingTaskState extends State<UpcomingTask> {
           Padding(
             padding: const EdgeInsets.only(right: 30, top: 15, bottom: 15),
             child: IconButton(
-              onPressed: () {
-                navToView(const UpcomingTask());
-              },
+              onPressed: () {},
               icon: SvgPicture.asset(
                 "assets/icons/calendar_icon.svg",
                 color: const Color(0xFF3787EB),

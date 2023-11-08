@@ -60,9 +60,7 @@ class _FirstPageState extends State<FirstPage> {
           Padding(
             padding: const EdgeInsets.only(top: 15, bottom: 15),
             child: IconButton(
-              onPressed: () {
-                navToView(const FirstPage());
-              },
+              onPressed: () {},
               icon: SvgPicture.asset(
                 "assets/icons/home_icon.svg",
                 color: const Color(0xFF3787EB),

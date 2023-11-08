@@ -165,7 +165,6 @@ class _TaskAddState extends State<TaskAdd> {
                       },
                       readOnly: true,
                       decoration: const InputDecoration(
-                        // label: Text("01 November, 2023"),
                         hintText: "01 November, 2023",
                         hintStyle: TextStyle(
                           color: Color(0xffDDDADA),
@@ -177,8 +176,8 @@ class _TaskAddState extends State<TaskAdd> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1,
+                            // color: Color(0xffDDDADA),
+                            // width: 1,
                           ),
                           borderRadius: BorderRadius.all(
                             Radius.circular(15),
