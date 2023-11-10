@@ -3,9 +3,11 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter_todo_app/Pages/add_todo.dart';
 import 'package:flutter_todo_app/Pages/home.dart';
 import 'package:flutter_todo_app/Pages/profile.dart';
+import 'package:flutter_todo_app/Pages/schedule.dart';
 import 'package:flutter_todo_app/Pages/upcoming_task.dart';
 import 'package:flutter_todo_app/utils/screen.dart';
 import 'package:gap/gap.dart';
+import 'package:intl/intl.dart';
 
 class InboxScreen extends StatefulWidget {
   const InboxScreen({super.key});
@@ -20,19 +22,19 @@ class _InboxScreenState extends State<InboxScreen> {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "Alarick Salzman",
       'status': "Rendre le monde meilleur",
-      'createdAt:': DateTime(2023, 11, 2, 20, 19, 42),
+      'createdAt': DateTime(2023, 11, 2, 20, 19, 42),
     },
     {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "Georges Floyd",
       'status': "Rendre le monde meilleur",
-      'createdAt:': DateTime(2023, 11, 2, 8, 30, 54),
+      'createdAt': DateTime(2023, 11, 2, 8, 30, 54),
     },
     {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "John Kennedy",
       'status': "Rendre le monde meilleur",
-      'createdAt:': DateTime(2023, 11, 2, 10, 27, 42),
+      'createdAt': DateTime(2023, 11, 2, 10, 27, 42),
     },
   ];
 
@@ -41,19 +43,19 @@ class _InboxScreenState extends State<InboxScreen> {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "John Doe",
       'status': "Hello world",
-      'createdAt:': DateTime(2023, 11, 2, 20, 19, 42),
+      'createdAt': DateTime(2023, 11, 2, 20, 19, 42),
     },
     {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "Alain Prost",
       'status': "Hello world",
-      'createdAt:': DateTime(2023, 11, 2, 20, 19, 42),
+      'createdAt': DateTime(2023, 11, 2, 20, 19, 42),
     },
     {
       'image': "assets/icons/user_circle_icon.svg",
       'name': "Edith Piath",
       'status': "Hello world",
-      'createdAt:': DateTime(2023, 11, 2, 07, 10, 42),
+      'createdAt': DateTime(2023, 11, 2, 07, 10, 42),
     },
     {
       'image': "assets/icons/user_circle_icon.svg",
@@ -76,9 +78,15 @@ class _InboxScreenState extends State<InboxScreen> {
 
   final TextEditingController _searchController = TextEditingController();
 
+  static String formatDate(DateTime date) {
+    final formatter = DateFormat('dd/MM/yyyy');
+    return formatter.format(date);
+  }
+
   static String compareDate(DateTime inputDate) {
     final now = DateTime.now();
     final difference = inputDate.difference(now);
+    print(difference);
 
     if (difference.inSeconds < 0) {
       // Si la date est passée
@@ -91,7 +99,8 @@ class _InboxScreenState extends State<InboxScreen> {
       return '${difference.inDays} jours';
     } else {
       // Sinon, renvoie la date au format "Date Heure"
-      return inputDate.toString();
+      // return formatDate(inputDate).toString();
+      return "Nice";
     }
   }
 
@@ -231,12 +240,15 @@ class _InboxScreenState extends State<InboxScreen> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
-                                              Text(
-                                                today_contacts[index]
-                                                        ['createdAt']
-                                                    .toString(),
-                                                // compareDate(DateTime.now()),
-                                                style: const TextStyle(
+                                              const Text(
+                                                // today_contacts[index]
+                                                //         ['createdAt']
+                                                //     .toString(),
+                                                // compareDate(
+                                                //     today_contacts[index]
+                                                //         ['createdAt']),
+                                                "Nice",
+                                                style: TextStyle(
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.grey),
@@ -320,12 +332,14 @@ class _InboxScreenState extends State<InboxScreen> {
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
-                                              Text(
-                                                yesterday_contacts[index]
-                                                        ['createdAt']
-                                                    .toString(),
-                                                // compareDate(DateTime.now()),
-                                                style: const TextStyle(
+                                              const Text(
+                                                // yesterday_contacts[index]
+                                                //         ['createdAt']
+                                                //     .toString(),
+                                                // compareDate(yesterday_contacts[index]
+                                                //         ['createdAt']),
+                                                "Nice",
+                                                style: TextStyle(
                                                     fontSize: 15,
                                                     fontWeight: FontWeight.bold,
                                                     color: Colors.grey),
@@ -383,10 +397,13 @@ class _InboxScreenState extends State<InboxScreen> {
             ),
           ],
         ),
-        child: SvgPicture.asset(
-          "assets/icons/apps_icon.svg",
-          width: 10,
-          height: 20,
+        child: GestureDetector(
+          onTap: () => navToView(const ScheduleScreen()),
+          child: SvgPicture.asset(
+            "assets/icons/apps_icon.svg",
+            width: 10,
+            height: 20,
+          ),
         ),
       ),
       actions: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/Pages/home.dart';
+import 'package:flutter_todo_app/Pages/schedule.dart';
 
 void main() {
   runApp(const MainApp());
@@ -35,6 +36,7 @@ class _MainAppState extends State<MainApp> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
+      // home: ScheduleScreen(),
       home: SplashScreen(),
     );
   }

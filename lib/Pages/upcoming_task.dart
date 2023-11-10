@@ -10,6 +10,8 @@ import 'package:flutter_todo_app/utils/screen.dart';
 import 'package:gap/gap.dart';
 import 'package:intl/intl.dart';
 
+import 'schedule.dart';
+
 class UpcomingTask extends StatefulWidget {
   const UpcomingTask({super.key});
 
@@ -18,7 +20,6 @@ class UpcomingTask extends StatefulWidget {
 }
 
 class _UpcomingTaskState extends State<UpcomingTask> {
-
   List<Task> tasks = [];
 
   void _getTask() {
@@ -65,10 +66,13 @@ class _UpcomingTaskState extends State<UpcomingTask> {
                 ),
               ],
             ),
-            child: SvgPicture.asset(
-              "assets/icons/apps_icon.svg",
-              width: 10,
-              height: 20,
+            child: GestureDetector(
+              onTap: () => navToView(const ScheduleScreen()),
+              child: SvgPicture.asset(
+                "assets/icons/apps_icon.svg",
+                width: 10,
+                height: 20,
+              ),
             ),
           ),
         ),

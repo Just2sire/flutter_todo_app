@@ -7,6 +7,8 @@ import 'package:flutter_todo_app/Pages/upcoming_task.dart';
 import 'package:flutter_todo_app/utils/screen.dart';
 import 'package:gap/gap.dart';
 
+import 'schedule.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
@@ -19,6 +21,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
   }
+
+  bool value1 = false;
+  bool value2 = false;
 
   void navToView(Widget widget) {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) => widget));
@@ -53,11 +58,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ],
             ),
-            child: SvgPicture.asset(
-              "assets/icons/apps_icon.svg",
-              width: 10,
-              height: 20,
-            ),
+            child: GestureDetector(
+          onTap: () => navToView(const ScheduleScreen()),
+          child: SvgPicture.asset(
+            "assets/icons/apps_icon.svg",
+            width: 10,
+            height: 20,
+          ),
+        ),
           ),
         ),
         body: Container(
@@ -196,8 +204,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ],
                           ),
                           Switch(
-                            value: false,
-                            onChanged: (bool? value) {},
+                            value: value1,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                value1 = !value1;
+                              });
+                            },
                             activeColor: const Color(0xFF3787EB),
                           ),
                         ],
@@ -227,8 +239,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ],
                           ),
                           Switch(
-                            value: false,
-                            onChanged: (bool? value) {},
+                            value: value2,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                value2 = !value2;
+                              });
+                            },
                             activeColor: const Color(0xFF3787EB),
                           ),
                         ],

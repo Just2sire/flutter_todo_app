@@ -27,7 +27,7 @@ class Task {
         iconPath: 'assets/icons/ui_icon.svg',
         startTime: const TimeOfDay(hour: 8, minute: 0),
         endTime: const TimeOfDay(hour: 18, minute: 30),
-        createdAt: DateTime.now()));
+        createdAt: DateTime(2023, 11, 2, 20, 19, 42)));
 
     tasks.add(Task(
       name: "Réunion avec l'équipe",
@@ -35,7 +35,7 @@ class Task {
       iconPath: 'assets/icons/web_code_icon1.svg',
       startTime: const TimeOfDay(hour: 8, minute: 0),
       endTime: const TimeOfDay(hour: 18, minute: 30),
-      createdAt: DateTime.now(),
+      createdAt: DateTime(2023, 11, 2, 20, 19, 42),
     ));
 
     tasks.add(Task(
@@ -44,7 +44,7 @@ class Task {
       iconPath: 'assets/icons/office_meeting_icon.svg',
       startTime: const TimeOfDay(hour: 8, minute: 0),
       endTime: const TimeOfDay(hour: 18, minute: 30),
-      createdAt: DateTime.now(),
+      createdAt: DateTime(2023, 11, 8, 12, 14, 42),
     ));
 
     tasks.add(Task(
@@ -53,7 +53,7 @@ class Task {
       iconPath: 'assets/icons/idea_icon1.svg',
       startTime: const TimeOfDay(hour: 8, minute: 0),
       endTime: const TimeOfDay(hour: 18, minute: 30),
-      createdAt: DateTime.now(),
+      createdAt: DateTime(2023, 11, 8, 14, 52, 42),
     ));
 
     return tasks;

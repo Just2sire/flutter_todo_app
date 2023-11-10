@@ -4,6 +4,7 @@ import 'package:flutter_todo_app/Models/todo.dart';
 import 'package:flutter_todo_app/Pages/add_todo.dart';
 import 'package:flutter_todo_app/Pages/inbox.dart';
 import 'package:flutter_todo_app/Pages/profile.dart';
+import 'package:flutter_todo_app/Pages/schedule.dart';
 import 'package:flutter_todo_app/Pages/task_details.dart';
 import 'package:flutter_todo_app/Pages/upcoming_task.dart';
 import 'package:flutter_todo_app/utils/screen.dart';
@@ -379,7 +380,7 @@ class _FirstPageState extends State<FirstPage> {
                       ),
                     ),
                   )
-                : const Text("Aucune tache")
+                : const Text("Aucune tache"),
           ],
         ),
       ],
@@ -409,10 +410,13 @@ class _FirstPageState extends State<FirstPage> {
             ),
           ],
         ),
-        child: SvgPicture.asset(
-          "assets/icons/apps_icon.svg",
-          width: 10,
-          height: 20,
+        child: GestureDetector(
+          onTap: () => navToView(const ScheduleScreen(),),
+          child: SvgPicture.asset(
+            "assets/icons/apps_icon.svg",
+            width: 10,
+            height: 20,
+          ),
         ),
       ),
       actions: [
