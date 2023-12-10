@@ -59,13 +59,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
             child: GestureDetector(
-          onTap: () => navToView(const ScheduleScreen()),
-          child: SvgPicture.asset(
-            "assets/icons/apps_icon.svg",
-            width: 10,
-            height: 20,
-          ),
-        ),
+              onTap: () => navToView(const ScheduleScreen()),
+              child: SvgPicture.asset(
+                "assets/icons/apps_icon.svg",
+                width: 10,
+                height: 20,
+              ),
+            ),
           ),
         ),
         body: Container(
@@ -86,7 +86,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           padding: const EdgeInsets.all(3),
                           decoration: BoxDecoration(
                             border: Border.all(
-                                color: const Color(0xFF3787EB), width: 3),
+                              color: const Color(0xFF3787EB),
+                              width: 3,
+                            ),
                             shape: BoxShape.circle,
                             color: Colors.white.withOpacity(0.3),
                           ),
